@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Правила сообщества — FurStatic</title>
+<style>
+:root{--bg:#0b0b0b;--card:#161616;--line:#2a2a2a;--text:#ececec;--mute:#9a9a9a;--y:#ffd400;--y2:#ffea70;--ink:#0b0b0b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="light"]){color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 12px)}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 48px;position:relative;z-index:1}
+header{text-align:center;padding:28px 0 8px}
+.logo{display:inline-block;background:var(--y);color:var(--ink);font-weight:800;font-size:13px;letter-spacing:.12em;padding:4px 12px;border-radius:999px}
+h1{margin:14px 0 4px;font-size:clamp(30px,8vw,44px);line-height:1.1}
+h1 span{color:var(--y)}
+.sub{color:var(--mute);margin:0}
+nav{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:24px 0}
+nav h3{margin:0 0 8px;color:var(--y);font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+nav h3:not(:first-child){margin-top:14px}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+nav a{display:block;color:var(--text);text-decoration:none;background:#1f1f1f;border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-size:14px}
+nav a b{color:var(--y);margin-right:6px}
+nav a:hover{border-color:var(--y)}
+h2{display:flex;align-items:center;gap:12px;margin:36px 0 14px;font-size:22px}
+h2 i{font-style:normal;background:var(--y);color:var(--ink);border-radius:8px;padding:0 12px;font-weight:800}
+.rule{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--y);border-radius:12px;padding:16px;margin:0 0 12px}
+.rule:target{border-color:var(--y);box-shadow:0 0 0 2px var(--y)}
+.rule h3{margin:0 0 8px;font-size:18px}
+.rule h3 b{color:var(--y);margin-right:8px}
+.rule p{margin:0 0 8px}
+.rule p:last-child{margin:0}
+.pun{display:block;margin-top:10px;padding:8px 12px;background:#221e00;border:1px solid #4d4300;border-radius:8px;color:var(--y2);font-size:14px}
+.pun em{font-style:normal;font-weight:700;color:var(--y)}
+footer{text-align:center;color:var(--mute);font-size:14px;margin-top:36px}
+footer b{color:var(--y)}
+footer{padding-bottom:48px}
+.fab{position:fixed;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);width:52px;height:52px;border-radius:50%;border:2px solid var(--y);background:var(--ink);color:var(--y);font-size:24px;line-height:1;display:grid;place-items:center;cursor:pointer;z-index:20;box-shadow:0 4px 16px #000a;padding:0}
+.fab:active{background:var(--y);color:var(--ink)}
+#gameBtn{left:calc(env(safe-area-inset-left,0px) + 16px)}
+#topBtn{right:calc(env(safe-area-inset-right,0px) + 16px);font-weight:800}
+.gm{position:fixed;inset:0;background:#000c;display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.gm.open{display:flex}
+.gbox{position:relative;width:100%;max-width:340px;background:var(--card);border:2px solid var(--y);border-radius:16px;padding:20px 16px 16px;text-align:center}
+.gbox h3{margin:0 0 4px;font-size:18px;color:var(--y)}
+.gs{margin:0 0 12px;color:var(--mute);min-height:1.6em}
+.gx{position:absolute;top:8px;right:8px;background:none;border:0;color:var(--mute);font-size:20px;cursor:pointer;padding:6px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cell{aspect-ratio:1;background:#1f1f1f;border:1px solid var(--line);border-radius:10px;font-size:clamp(30px,11vw,44px);line-height:1;cursor:pointer;padding:0;color:var(--text)}
+.cell:hover{border-color:var(--y)}
+.cell.win{background:var(--y);box-shadow:0 0 16px var(--y)}
+.gc{display:flex;gap:8px;margin-top:12px}
+.gc button{flex:1;background:var(--y);color:var(--ink);border:0;border-radius:8px;padding:10px;font-weight:700;font-size:14px;cursor:pointer}
+#bolts{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:60}
+.bolt{fill:none;stroke:#fff6b0;stroke-width:4;stroke-linejoin:round;stroke-linecap:round;opacity:0;filter:drop-shadow(0 0 6px #ffd400) drop-shadow(0 0 16px #ffd400);animation:fl 1s forwards}
+@keyframes fl{0%{opacity:0}8%{opacity:1}16%{opacity:.2}24%{opacity:1}60%{opacity:.7}100%{opacity:0}}
+#flash{position:fixed;inset:0;background:#ffd40040;opacity:0;pointer-events:none;z-index:59}
+#flash.on{animation:fl 1s}
+#sky{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+#sb{position:absolute;inset:0;width:100%;height:100%}
+.cl{position:absolute;left:0;white-space:nowrap;filter:grayscale(1);animation:drift linear infinite}
+@keyframes drift{from{transform:translateX(-25vw)}to{transform:translateX(125vw)}}
+.bolt2{fill:none;stroke:#ffe14d;stroke-width:2;stroke-linejoin:round;stroke-linecap:round;opacity:0;filter:drop-shadow(0 0 5px #ffd400);animation:fl2 1.1s forwards}
+@keyframes fl2{0%{opacity:0}8%{opacity:.7}16%{opacity:.15}24%{opacity:.7}60%{opacity:.4}100%{opacity:0}}
+#sf{position:absolute;inset:0;background:#ffd40014;opacity:0}
+#sf.on{animation:fl2 1.1s}
+</style>
+</head>
+<body>
+<div id="sky" aria-hidden="true"><svg id="sb"></svg><div id="sf"></div></div>
+<div class="wrap">
+<header>
+<span class="logo">🐾 СООБЩЕСТВО</span>
+<h1>Fur<span>Static</span></h1>
+<p class="sub">Правила сообщества</p>
+</header>
+
+<nav>
+<h3>I · Общие правила</h3>
+<ul>
+<li><a href="#r-1"><b>01</b>Спам</a></li>
+<li><a href="#r-2"><b>02</b>Мат</a></li>
+<li><a href="#r-3"><b>03</b>Угрозы</a></li>
+<li><a href="#r-4"><b>04</b>Контент 18+</a></li>
+<li><a href="#r-5"><b>05</b>Жестокость</a></li>
+<li><a href="#r-6"><b>06</b>Самоповреждение</a></li>
+<li><a href="#r-7"><b>07</b>Провокации</a></li>
+<li><a href="#r-8"><b>08</b>Язык общения</a></li>
+<li><a href="#r-9"><b>09</b>Реклама</a></li>
+<li><a href="#r-10"><b>10</b>Политика</a></li>
+<li><a href="#r-11"><b>11</b>Ссылки</a></li>
+<li><a href="#r-12"><b>12</b>Лазейки в правилах</a></li>
+<li><a href="#r-13"><b>13</b>Моды Telegram</a></li>
+<li><a href="#r-14"><b>14</b>Твинки</a></li>
+<li><a href="#r-15"><b>15</b>Теги админов</a></li>
+</ul>
+<h3>II · Администрация</h3>
+<ul>
+<li><a href="#r-16"><b>16</b>Блокировки</a></li>
+<li><a href="#r-17"><b>17</b>Доп. команды</a></li>
+<li><a href="#r-18"><b>18</b>Удаление сообщений</a></li>
+<li><a href="#r-19"><b>19</b>Закрепы</a></li>
+</ul>
+</nav>
+
+<h2><i>I</i> Общие правила</h2>
+
+<section class="rule" id="r-1"><h3><b>01</b>Спам</h3>
+<p>Спам запрещён. Срок наказания зависит от количества сообщений, числа символов в них и их содержания. Длинные сообщения без смысла тоже считаются спамом.</p>
+<span class="pun"><em>Наказание:</em> мут от 5 минут</span></section>
+
+<section class="rule" id="r-2"><h3><b>02</b>Нецензурная лексика</h3>
+<p>Мат разрешён для выражения эмоций. Использовать его в других целях запрещено.</p>
+<p>Мат как оскорбление: если тот, кому были адресованы оскорбления, считает, что это его оскорбило, выдаётся наказание. Мат как угроза в адрес участников или администрации — срок зависит от серьёзности угрозы.</p>
+<span class="pun"><em>Наказание:</em> оскорбление — мут от 30 минут · угроза — мут от 1 часа</span></section>
+
+<section class="rule" id="r-3"><h3><b>03</b>Угрозы</h3>
+<p>Запрещены угрозы участнику или администратору: доксом, сливом личной информации, физической расправой, хакерскими атаками, вирусами и взломом.</p>
+<span class="pun"><em>Наказание:</em> мут от 3 дней + перманентный варн</span></section>
+
+<section class="rule" id="r-4"><h3><b>04</b>Контент для взрослых (18+)</h3>
+<p>Контент 18+ разрешён, но только при соблюдении двух условий: он отправляется под спойлером, и перед ним стоит предупреждение «18+». Это касается любой формы: изображений, GIF, видео, аудио и текста.</p>
+<p>Отправка без спойлера или без предупреждения считается нарушением. Контент 18+ в никнеймах, аватарках и описаниях профиля не допускается, потому что их нельзя скрыть.</p>
+<span class="pun"><em>Наказание:</em> за отправку без спойлера или предупреждения — на усмотрение администратора</span></section>
+
+<section class="rule" id="r-5"><h3><b>05</b>Жестокость</h3>
+<p>Запрещены публикация и пропаганда материалов с жестоким обращением с животными, а также использование такого контента ради развлечения, провокации или шока других участников.</p>
+<span class="pun"><em>Наказание:</em> на усмотрение администратора, без ограничений по сроку</span></section>
+
+<section class="rule" id="r-6"><h3><b>06</b>Самоповреждение и суицид</h3>
+<p>Запрещены пропаганда, романтизация, поощрение и призывы к самоповреждению или суициду, а также распространение материалов на эту тему.</p>
+<span class="pun"><em>Наказание:</em> на усмотрение администратора, без ограничений по сроку</span></section>
+
+<section class="rule" id="r-7"><h3><b>07</b>Провокации</h3>
+<p>Запрещены склонение и подстрекательство других участников к нарушению правил (в том числе ради фиксации нарушения или выгоды), намеренная провокация конфликтов и преследование участников.</p>
+<span class="pun"><em>Наказание:</em> мут от 1 часа + варн<br>При многократном повторении: в первый раз — мут 2 часа, далее — от 1 дня</span></section>
+
+<section class="rule" id="r-8"><h3><b>08</b>Язык общения</h3>
+<p>В публичных текстовых и голосовых чатах разрешены только русский, украинский и английский языки. Так администрация может модерировать общение, а контент понятен большинству участников.</p>
+<span class="pun"><em>Наказание:</em> на усмотрение администратора, без ограничений по сроку</span></section>
+
+<section class="rule" id="r-9"><h3><b>09</b>Реклама</h3>
+<p>Запрещена любая реклама без согласования с администрацией: других проектов и серверов, чатов и каналов, читов, взломанных клиентов, скам-сайтов, фишинга и онлайн-казино.</p>
+<span class="pun"><em>Наказание:</em> перманентный варн</span></section>
+
+<section class="rule" id="r-10"><h3><b>10</b>Политические темы и нацизм</h3>
+<p>Запрещены политические дискуссии, упоминание политических личностей и событий, изображения политических деятелей, групп и событий, а также демонстрация и пропаганда символики фашизма, нацизма и иных тоталитарных режимов.</p>
+<span class="pun"><em>Наказание:</em> мут от 10 минут + варн на неделю</span></section>
+
+<section class="rule" id="r-11"><h3><b>11</b>Ссылки</h3>
+<p>Запрещена отправка неизвестных и потенциально опасных ссылок: на каналы, файлы для скачивания, другие чаты и сообщества.</p>
+<span class="pun"><em>Наказание:</em> мут от 1 часа + варн на неделю</span></section>
+
+<section class="rule" id="r-12"><h3><b>12</b>Использование лазеек в правилах</h3>
+<p>Запрещено намеренно использовать пробелы, противоречия и неоднозначности правил, чтобы обойти ограничения, навредить другим участникам или уйти от ответственности.</p></section>
+
+<section class="rule" id="r-13"><h3><b>13</b>Модифицированные клиенты Telegram</h3>
+<p>Неофициальные версии Telegram разрешены. Но злоупотреблять их функциями нельзя: сливать удалённые сообщения участников, раскрывать скрытую информацию и номера телефонов.</p>
+<span class="pun"><em>Наказание:</em> мут от 1 часа</span></section>
+
+<section class="rule" id="r-14"><h3><b>14</b>Твинк-аккаунты</h3>
+<p>Нахождение в чате с двух и более аккаунтов строго запрещено.</p>
+<p>Если участник зашёл с твинка ради обхода наказания, срок наказания удваивается.</p>
+<span class="pun"><em>Наказание:</em> перманентный бан всем твинк-аккаунтам · при обходе наказания срок удваивается</span></section>
+
+<section class="rule" id="r-15"><h3><b>15</b>Теги администрации</h3>
+<p>Без необходимости тегать администраторов нельзя.</p>
+<span class="pun"><em>Наказание:</em> мут 1–2 часа</span></section>
+
+<h2><i>II</i> Администрация</h2>
+
+<section class="rule" id="r-16"><h3><b>16</b>Блокировка пользователей</h3>
+<p>Администрация может ограничивать участников только за нарушение действующих правил. Форма и срок наказания зависят от нарушенного правила.</p></section>
+
+<section class="rule" id="r-17"><h3><b>17</b>Дополнительные команды</h3>
+<p>Администрации доступны дополнительные команды, позволяющие созывать участников и временно или навсегда ограничивать их. Злоупотребление ими может привести к строгому выговору, а также к частичному или полному лишению прав.</p></section>
+
+<section class="rule" id="r-18"><h3><b>18</b>Удаление сообщений</h3>
+<p>Администрация может удалять сообщения участников и ботов при необходимости. Основные причины: нарушение правил, ссора, спам, реклама.</p></section>
+
+<section class="rule" id="r-19"><h3><b>19</b>Закрепление сообщений</h3>
+<p>Администрация может закреплять сообщения при необходимости.</p></section>
+
+<footer><b>FurStatic</b> · Правила сообщества</footer>
+</div>
+<button class="fab" id="gameBtn" aria-label="Крестики-нолики">⚡</button>
+<button class="fab" id="topBtn" aria-label="Наверх">↑</button>
+<div class="gm" id="gm"><div class="gbox"><button class="gx" id="gx" aria-label="Закрыть">✕</button><h3>⚡ Молнии и облака ☁️</h3><p class="gs" id="gs"></p><div class="grid" id="grid"></div><div class="gc"><button id="gr">Заново</button><button id="gmode">Против бота</button></div></div></div>
+<svg id="bolts"></svg><div id="flash"></div>
+<script>
+(function(){
+var L='⚡',C='☁️',b,turn,over,bot=true,busy=false,gid=0;
+var gm=document.getElementById('gm'),grid=document.getElementById('grid'),gs=document.getElementById('gs'),cells=[];
+var lines=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+for(var i=0;i<9;i++){(function(i){var c=document.createElement('button');c.className='cell';c.setAttribute('aria-label','Клетка '+(i+1));c.onclick=function(){move(i,true)};grid.appendChild(c);cells.push(c)})(i)}
+function reset(){gid++;b=['','','','','','','','',''];turn=L;over=false;busy=false;cells.forEach(function(c){c.textContent='';c.className='cell'});gs.textContent='Ход: '+L}
+function win(){for(var k=0;k<8;k++){var l=lines[k];if(b[l[0]]&&b[l[0]]===b[l[1]]&&b[l[1]]===b[l[2]])return l}return null}
+function find(m){for(var k=0;k<8;k++){var l=lines[k],v=l.map(function(x){return b[x]}),e=v.indexOf('');if(e>-1&&v.filter(function(x){return x===m}).length===2)return l[e]}return -1}
+function pick(){var r=find(C);if(r<0)r=find(L);if(r<0&&!b[4])r=4;if(r<0){var f=[];for(var i=0;i<9;i++)if(!b[i])f.push(i);r=f[Math.floor(Math.random()*f.length)]}return r}
+function move(i,human){
+if(over||b[i]||(busy&&human))return;
+b[i]=turn;cells[i].textContent=turn;
+var w=win();
+if(w){over=true;w.forEach(function(x){cells[x].classList.add('win')});gs.textContent='Победили '+turn+'! ⚡';strike();return}
+if(b.every(Boolean)){over=true;gs.textContent='Ничья';return}
+turn=turn===L?C:L;gs.textContent='Ход: '+turn;
+if(bot&&turn===C){busy=true;var g=gid;setTimeout(function(){if(g!==gid)return;busy=false;if(!over)move(pick(),false)},400)}
+}
+function strike(){
+var s=document.getElementById('bolts'),f=document.getElementById('flash'),W=innerWidth,H=innerHeight;
+s.setAttribute('viewBox','0 0 '+W+' '+H);s.innerHTML='';
+for(var n=0;n<4;n++){
+var x=Math.random()*W,y=0,d='M'+x+',0';
+while(y<H){y+=20+Math.random()*50;x+=(Math.random()-.5)*70;d+=' L'+x.toFixed(0)+','+Math.min(y,H).toFixed(0)}
+var p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d);p.setAttribute('class','bolt');p.style.animationDelay=(n*0.18)+'s';s.appendChild(p)}
+f.classList.remove('on');void f.offsetWidth;f.classList.add('on');
+setTimeout(function(){s.innerHTML=''},2000)}
+document.getElementById('gameBtn').onclick=function(){gm.classList.add('open')};
+document.getElementById('gx').onclick=function(){gm.classList.remove('open')};
+gm.onclick=function(e){if(e.target===gm)gm.classList.remove('open')};
+document.addEventListener('keydown',function(e){if(e.key==='Escape')gm.classList.remove('open')});
+document.getElementById('gr').onclick=reset;
+document.getElementById('gmode').onclick=function(){bot=!bot;this.textContent=bot?'Против бота':'Вдвоём';reset()};
+document.getElementById('topBtn').onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
+reset();
+})();
+</script>
+<script>
+(function(){
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var sky=document.getElementById('sky'),sb=document.getElementById('sb'),sf=document.getElementById('sf');
+for(var i=0;i<7;i++){var c=document.createElement('span'),d=40+Math.random()*50;c.className='cl';c.textContent='☁️';c.style.top=(Math.random()*85)+'%';c.style.fontSize=(40+Math.random()*80)+'px';c.style.opacity=0.07+Math.random()*0.1;c.style.animationDuration=d+'s';c.style.animationDelay='-'+(Math.random()*d)+'s';sky.appendChild(c)}
+function zap(){
+if(!document.hidden){
+var W=innerWidth,H=innerHeight,n=1+Math.floor(Math.random()*2);
+sb.setAttribute('viewBox','0 0 '+W+' '+H);sb.innerHTML='';
+for(var k=0;k<n;k++){
+var x=Math.random()*W,y=0,end=H*(0.4+Math.random()*0.5),d='M'+x.toFixed(0)+',0';
+while(y<end){y+=15+Math.random()*40;x+=(Math.random()-.5)*60;d+=' L'+x.toFixed(0)+','+Math.min(y,end).toFixed(0)}
+var p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d);p.setAttribute('class','bolt2');p.style.animationDelay=(k*0.15)+'s';sb.appendChild(p)}
+sf.classList.remove('on');void sf.offsetWidth;sf.classList.add('on')}
+setTimeout(zap,4000+Math.random()*7000)}
+setTimeout(zap,2500);
+})();
+</script>
+</body>
+</html>
